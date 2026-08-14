@@ -66,4 +66,21 @@ public class inventarioController {
 
         return "Producto no encontrado";
     }
+
+    @GetMapping("/productos/{id}/{categoria}")
+    public producto buscarProducto(
+            @PathVariable Long id,
+            @PathVariable String categoria) {
+
+        for (producto p : inventario) {
+
+            if (p.getId().equals(id)
+                    && p.getCategoria().equalsIgnoreCase(categoria)) {
+
+                return p;
+            }
+        }
+
+        return null;
+    }
 }
