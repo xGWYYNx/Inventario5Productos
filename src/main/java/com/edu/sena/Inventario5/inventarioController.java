@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.DeleteMapping;
 
 import com.edu.sena.Inventario5.model.producto;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -52,5 +53,17 @@ public class inventarioController {
         }
 
         return null;
+    }
+
+    @DeleteMapping("/productos/{id}")
+    public String eliminarProducto(@PathVariable Long id) {
+
+        boolean eliminado = inventario.removeIf(p -> p.getId().equals(id));
+
+        if (eliminado) {
+            return "Producto eliminado correctamente";
+        }
+
+        return "Producto no encontrado";
     }
 }
