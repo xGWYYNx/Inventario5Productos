@@ -17,4 +17,9 @@ public class producto {
     public String getCategoria() { return categoria; }
     public Double getPrecio() { return precio; }
 
+    public void setId(Long id) { this.id = id; }
+    public void setNombre(String nombre) { this.nombre = nombre; }
+    public void setCategoria(String categoria) { this.categoria = categoria; }
+    public void setPrecio(Double precio) { this.precio = precio; }
+
 }
